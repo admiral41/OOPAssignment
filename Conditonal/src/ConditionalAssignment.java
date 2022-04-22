@@ -223,15 +223,22 @@ class weekday{
 
 class month {
     public static void main(String[] args) {
-        int month;
+        int month,year;
         Scanner p = new Scanner(System.in);
-
+        System.out.println("enter year");
+        year = p.nextInt();
         System.out.print("Enter month number (1-12): ");
         month = p.nextInt();
         if (month == 1) {
             System.out.println("JANUARY 31 days");
         } else if (month == 2) {
-            System.out.println("FEBRUARY 28 or 29 days");
+            System.out.println("FEBRUARY");
+            if (year%400==0 || year%4==0 || year% 100!=0){
+                System.out.println("Number of days 29");
+            }
+            else{
+                System.out.println("Number of days 28");
+            }
         } else if (month == 3) {
             System.out.println("MARCH 31 days");
         } else if (month == 4) {
@@ -476,4 +483,69 @@ class studentmark{
         }
 
     }
+}
+/*20. Write a JAVA program to input basic salary of an employee and calculate its Gross salary
+according to following:
+Basic Salary <= 10000 : HRA = 20%, DA = 80%
+Basic Salary <= 20000 : HRA = 25%, DA = 90%
+Basic Salary > 20000 : HRA = 30%, DA = 95%*/
+class Salaryys{
+    public static void main(String[] args) {
+        double b_salary, hra, da, gross;
+        Scanner scanner= new Scanner(System.in);
+
+        System.out.println("enter the basic salary");
+        b_salary=scanner.nextDouble();
+
+        if (b_salary <= 10000 ){
+            hra=b_salary*0.2;
+            da=b_salary*0.8;
+        }
+        else if (b_salary <= 20000 ){
+            hra=b_salary*0.25;
+            da=b_salary*0.90;
+        }
+        else {
+            hra=b_salary*0.3;
+            da=b_salary*0.95;
+        }
+        gross=b_salary+hra+da;
+        System.out.println("Gross salary is "+gross);
+
+    }
+}
+
+class ElectricityBill1 {
+    public static void main(String[] args){
+        Scanner scanner= new Scanner(System.in);
+
+        double Units;
+        double Amount, Total_Amount;
+
+        System.out.print(" Please Enter the Units that you Consumed  : ");
+        Units = scanner.nextInt();
+
+        if (Units < 50)
+        {
+            Amount = Units * 0.50;
+        }
+        else if (Units <= 150)
+        {
+            Amount = 25 + ((Units - 50 ) * 0.75);
+        }
+        else if (Units <= 250)
+        {
+            Amount = 25 + 75 + ((Units - 150 ) * 1.20);
+
+        }
+        else
+        {
+            Amount = 25 + 75 + 120 + ((Units - 250 ) * 1.50);
+
+        }
+
+        Total_Amount = Amount + (Amount*0.2);
+        System.out.println("\n Electricity Bill  =  " + Total_Amount);
+    }
+
 }
